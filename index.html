@@ -1,247 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>crema labs</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
-
-      body {
-        background-color: #000;
-        color: #00fffc;
-        font-family: "Share Tech Mono", monospace;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        padding: 20px;
-        box-sizing: border-box;
-      }
-      .top-bar,
-      .bottom-bar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 10px 20px;
-        box-sizing: border-box;
-      }
-      .container {
-        position: relative;
-        transform: perspective(1000px) rotateX(20deg) scale(2);
-        margin: 20px 0;
-      }
-      pre {
-        font-size: 6px;
-        line-height: 6px;
-        white-space: pre;
-        text-shadow: 0 0 3px #00fffc, 0 0 6px #00fffc;
-        animation: glow 1.5s ease-in-out infinite alternate;
-      }
-      @keyframes glow {
-        from {
-          text-shadow: 0 0 3px #00fffc, 0 0 6px #00fffc;
-        }
-        to {
-          text-shadow: 0 0 6px #00fffc, 0 0 12px #00fffc, 0 0 18px #00fffc;
-        }
-      }
-      .scanner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 8px;
-        background: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0.5),
-          rgba(255, 255, 255, 0.8),
-          rgba(255, 255, 255, 0.5)
-        );
-        box-shadow: 0 0 15px 3px rgba(175, 204, 203, 0.7);
-        animation: scan 4s linear infinite;
-        opacity: 0.7;
-      }
-      @keyframes scan {
-        0%,
-        100% {
-          top: 0;
-        }
-        50% {
-          top: 100%;
-        }
-      }
-      .github-logo {
-        width: 32px;
-        height: 32px;
-      }
-      .github-logo img {
-        width: 100%;
-        height: 100%;
-        filter: invert(1);
-      }
-      .info-container {
-        background: rgba(0, 255, 252, 0.1);
-        border: 1px solid #00fffc;
-        padding: 15px;
-        border-radius: 5px;
-        max-width: 600px;
-        text-align: center;
-        animation: pulse 2s infinite alternate;
-      }
-      .top-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        padding: 10px 20px;
-        box-sizing: border-box;
-      }
-
-      .github-link {
-        text-decoration: none;
-      }
-      .github-logo {
-        width: 48px;
-        height: 48px;
-        transition: transform 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      @keyframes shine {
-        0% {
-          transform: translateX(-100%) translateY(-100%) rotate(45deg);
-        }
-        100% {
-          transform: translateX(100%) translateY(100%) rotate(45deg);
-        }
-      }
-      .github-logo::after {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          to bottom right,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.1) 50%,
-          rgba(255, 255, 255, 0) 100%
-        );
-        transform: rotate(45deg);
-        animation: shine 3s infinite;
-      }
-      .github-logo:hover {
-        transform: scale(1.1);
-      }
-
-      .github-logo img {
-        width: 100%;
-        height: 100%;
-        filter: invert(1);
-        position: relative;
-        z-index: 1;
-      }
-      @keyframes pulse {
-        from {
-          box-shadow: 0 0 5px #00fffc;
-        }
-        to {
-          box-shadow: 0 0 15px #00fffc;
-        }
-      }
-      .info-container p {
-        margin: 10px 0;
-      }
-      @media (max-width: 600px) {
-        body {
-          padding: 10px;
-        }
-        .container {
-          transform: perspective(1000px) rotateX(20deg) scale(1);
-          margin: 20px 0;
-        }
-        pre {
-          font-size: 4px;
-          line-height: 4px;
-        }
-        .github-logo {
-          width: 32px;
-          height: 32px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="top-bar">
-      <div></div>
-      <a href="https://github.com/crema-labs" target="_blank"
-        rel="noopener noreferrer" class="github-link">
-        <div class="github-logo">
-          <img
-            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-            alt="GitHub" />
-        </div>
-      </a>
-    </div>
-    <div class="container">
-      <pre>
-====================================================================================================
-====================================================================================================
-====================================================================================================
-====================================================================================================
-====================================================================================================
-====================================================================================================
-============================-::::::::::::::::::::::::::::::::::::::::.:-============================
-==========================-:::::::::::::::::::::::::::::::::::::::::::::::-=========================
-=========================-::::::::::::::::::::::::::::::::::-:::::::::::::.-========================
-=========================::::::::::::::::::::::::-**+::::.+%%%=::::::::::::.========================
-=======================+=------:::::::::::::::::-%%%%*.:+*%%%%=.::::::::::::-=======================
-=====================++*=-------:::::::-+#%%**#%%%%%%-:%%%%*=:.=**-:::::::::-=======================
-===================++**#=--------::::=#%%%%%#*+==-:...*%%%%=.-+%%%#:::::::::-=======================
-==================++**##=--------::=#%*-++=::..-=+##%%%%#*-*%%%%#-::::::::::-=======================
-=================+++**##=---------=%%=:::-=+*#%%%%#*+=-:.-+%%%%%%+::::::::::-=======================
-================++++**##=---------#%+:::-%%%%#*+-:--=+*#%%%%%##+#%::::::::::-=======================
-================++++**##=---------#%+::::=-::::=#%%%%%%#*+-::...##::::::::::-=======================
-================+++***##=---------#%%-:::::::::*@#+-::::::::::.+%%::::::::::-=======================
-================+++**###=---------%@%%*::::::::::::::::::::::-#%%%%%%*-:::::-=======================
-================+++***##=---------%%=+%%*=:::::::::::::::::=#%#-%%--*%%:::::-=======================
-===============++++***##=---------%@---#@%%*+=-:::::::-=+#%%%=::%%-::#%=::::-=======================
-===============++++***##=---------%@=--#@++%@%@@@%%%@@%@@*=%%:::%%-:=%%:::::-=======================
-===============++++***##=---------%@+--#@--#@-=%@=+%%--%@::%%::-%%*%%#:::-::-=======================
-===============++++***##=---------*@#--#@--%@--%@:-%@--%@:-%%::+%%*=------::-=======================
-===============++++***##+---------=%@=-#@--%@--%@:-%@-:%@:-%@:-%%=---------:-=======================
-===============++++***##+----------+@%=#@=-%@--%@:-%@--%@:-%@:#%+:---------:-=======================
-===============++++***##+-----------+@%#@=-%@--%@:-%@--%@:-%@#%=:------------=======================
-===============++++***##+=-----------+%@@+-%@--%@--%@--%@:=%@%-:-------------=======================
-===============++++**###+===-=--------=+%@@%@--%@--%@--%@%@%=----------------=======================
-===============++++***##+======---------=+*%@%%@@##%@%%@%*=------------------=======================
-===============++++***##+========-----------=++**##**+=--------------------:-=======================
-===============++++***###=-=========------------=%%=------------------------========================
-===============++++***##%*=-=========--------------------------------------=========================
-================++++**##%%%+==========----------------------------------=+==========================
-================++++**###%%%%%#**+++++++++++++++++++++++++++++++++++***+============================
-================+++++***#####%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%###*++=============================
-=================+++++****#######################################**+++==============================
-==================+++++++***************************************++++================================
-===================+++++++++++++++++++++++++++++++++++++++++++++++==================================
-==========================+++++++++++++++++++++++++++++++++=========================================
-</pre>
-      <div class="scanner"></div>
-    </div>
-    <div class="bottom-bar">
-      <div class="info-container">
-        <p>
-          Crema Labs is a blockchain R&D studio focusing on zk research and
-          circom tooling.
-        </p>
-      </div>
-      <div></div>
-    </div>
-  </body>
+        <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport"
+                        content="width=device-width, initial-scale=1.0" />
+                <title>Crema Labs</title>
+                <style>
+         @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+         body {
+         background-color: #000;
+         color: #00fffc;
+         font-family: 'VT323',monospace;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         min-height: 100vh;
+         margin: 0;
+         padding: 20px;
+         position: relative;
+         }
+         .top-bar {
+         display: flex;
+         justify-content: flex-end;
+         align-items: center;
+         width: 100%;
+         padding: 10px 20px;
+         box-sizing: border-box;
+         position: fixed;
+         top: 0;
+         right: 0;
+         z-index: 3;
+         }
+         .centered-text-container {
+         position: absolute;
+         z-index: 2;
+         padding: 40px 40px;
+         background: rgba(0, 255, 252, 0.1);
+         border-radius: 30px;
+         /* box-shadow: 0 0 15px rgba(0, 255, 252, 0.5); */
+         backdrop-filter: blur(5px);
+         -webkit-backdrop-filter: blur(5px);
+         pointer-events: none;
+         }
+         .centered-text {
+         color: #e2f3f3;
+         font-family: 'VT323',monospace;
+         font-size: 100px;
+         font-weight: 700;
+         text-shadow: 0 0 8px rgba(0, 255, 252, 0.7);
+         animation: glow 1.5s ease-in-out infinite alternate;
+         }
+         @keyframes glow {
+         from { text-shadow: 0 0 2px #e2f3f3, 0 0 4px #e2f3f3; }
+         to { text-shadow: 0 0 4px #e2f3f3, 0 0 7px #46ceff, 0 0 10px #e2f3f3; }
+         }
+         .github-link {
+         text-decoration: none;
+         z-index: 3;
+         }
+         .github-logo {
+         transform: scale(1.03);
+         width: 60px;
+         height: 60px;
+         transition: transform 0.3s ease;
+         position: relative;
+         overflow: hidden;
+         background: black;
+         }
+         @keyframes shine {
+         0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+         100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+         }
+         .github-logo::after {
+         content: "";
+         position: absolute;
+         top: -50%;
+         left: -50%;
+         width: 200%;
+         height: 200%;
+         animation: shine 3s infinite;
+         }
+         .github-logo:hover {
+         transform: scale(1.2);
+         }
+         .github-logo img {
+         width: 100%;
+         height: 100%;
+         filter: invert(1);
+         position: relative;
+         z-index: 1;
+         }
+         @media (max-width: 600px) {
+         body {
+         padding: 10px;
+         }
+         .github-logo {
+         width: 32px;
+         height: 32px;
+         }
+         }
+         #gameOfLifeCanvas {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: 1;
+         }
+      </style>
+        </head>
+        <body>
+                <div class="top-bar">
+                        <a href="https://github.com/crema-labs" target="_blank"
+                                rel="noopener noreferrer" class="github-link">
+                                <div class="github-logo">
+                                        <img
+                                                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                                                alt="GitHub" />
+                                </div>
+                        </a>
+                </div>
+                <div class="centered-text-container">
+                        <div class="centered-text">Crema Labs</div>
+                        <div class="body">Crema Labs is a blockchain R&D studio
+                                focusing on zk research</div>
+                </div>
+                <canvas id="gameOfLifeCanvas"></canvas>
+                <script>
+         const canvas = document.getElementById('gameOfLifeCanvas');
+         const ctx = canvas.getContext('2d');
+         let resolution = 10;
+         let cols, rows, grid, nextGrid;
+         let lastUpdateTime = 0;
+         const updateInterval = 30; // Update every 100ms (10 frames per second)
+         
+         function setupCanvas() {
+         canvas.width = window.innerWidth;
+         canvas.height = window.innerHeight;
+         cols = Math.floor(canvas.width / resolution);
+         rows = Math.floor(canvas.height / resolution);
+         grid = buildGrid();
+         nextGrid = buildGrid(false);
+         preselectConfiguration(grid);
+         render(grid);
+         }
+         
+         function buildGrid(randomize = true) {
+         return new Array(cols).fill(null)
+          .map(() => new Array(rows).fill(null)
+          .map(() => randomize ? (Math.random() < 0.25  ? 1 : 0) : 0));
+         }
+         
+         function preselectConfiguration(grid) {
+              grid[1][0] = 1;
+              grid[2][1] = 1;
+              grid[0][2] = 1;
+              grid[1][2] = 1;
+              grid[2][2] = 1;
+         
+              const textContainer = document.querySelector('.centered-text-container');
+              const rect = textContainer.getBoundingClientRect();
+              const startX = Math.floor(rect.left / resolution);
+              const startY = Math.floor(rect.top / resolution);
+              const endX = Math.ceil((rect.right - rect.left) / resolution) + startX;
+              const endY = Math.ceil((rect.bottom - rect.top) / resolution) + startY;
+         
+              for (let x = startX; x < endX; x++) {
+                  for (let y = startY; y < endY; y++) {
+                      grid[x][y] = 0;
+                  }
+              }
+          }
+         
+         
+         function update() {
+         for (let col = 0; col < cols; col++) {
+          for (let row = 0; row < rows; row++) {
+              const cell = grid[col][row];
+              const numNeighbours = countNeighbours(col, row);
+         
+              if (cell === 1 && (numNeighbours < 2 || numNeighbours > 3)) {
+                  nextGrid[col][row] = 0;
+              } else if (cell === 0 && numNeighbours === 3) {
+                  nextGrid[col][row] = 1;
+              } else {
+                  nextGrid[col][row] = cell;
+              }
+          }
+         }
+         
+         // Swap grids
+         [grid, nextGrid] = [nextGrid, grid];
+         }
+         
+         function countNeighbours(col, row) {
+         let count = 0;
+         for (let i = -1; i < 2; i++) {
+          for (let j = -1; j < 2; j++) {
+              if (i === 0 && j === 0) continue;
+              const x = (col + i + cols) % cols;
+              const y = (row + j + rows) % rows;
+              count += grid[x][y];
+          }
+         }
+         return count;
+         }
+         
+         function render(grid) {
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+         for (let col = 0; col < cols; col++) {
+          for (let row = 0; row < rows; row++) {
+              const cell = grid[col][row];
+              if (cell) {
+                  ctx.fillStyle = '#00fffc';
+                  ctx.fillRect(col * resolution, row * resolution, resolution - 1, resolution - 1);
+              }
+          }
+         }
+         }
+         
+         function handleClick(event) {
+         const rect = canvas.getBoundingClientRect();
+         const x = event.clientX - rect.left;
+         const y = event.clientY - rect.top;
+         
+         const col = Math.floor(x / resolution);
+         const row = Math.floor(y / resolution);
+         
+         grid[col][row] = grid[col][row] ? 0 : 1;
+         
+         render(grid);
+         }
+         
+         function animate(currentTime) {
+         if (currentTime - lastUpdateTime > updateInterval) {
+          update();
+          render(grid);
+          lastUpdateTime = currentTime;
+         }
+         requestAnimationFrame(animate);
+         }
+         
+         canvas.addEventListener('mousemove', handleClick);
+         window.addEventListener('resize', setupCanvas);
+         
+         setupCanvas();
+         requestAnimationFrame(animate);
+      </script>
+        </body>
 </html>
